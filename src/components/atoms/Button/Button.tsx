@@ -3,6 +3,7 @@ import {TouchableOpacity, Text} from 'react-native';
 const Button = (props: any) => {
   return (
     <TouchableOpacity
+      accessibilityRole="button"
       style={{
         paddingVertical: 12,
         paddingHorizontal: 20,

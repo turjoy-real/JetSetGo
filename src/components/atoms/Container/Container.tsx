@@ -3,25 +3,39 @@ import {Image, SafeAreaView, StyleSheet} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Header from '../../molecules/Header/Header';
 
-const Container = ({children}: {children: ReactNode}) => {
+const Container = ({
+  leftButton,
+  header,
+  children,
+  rightButton,
+}: {
+  leftButton: ReactNode | undefined;
+  header: string;
+  children: ReactNode;
+  rightButton: ReactNode | undefined;
+}) => {
   return (
-    // <SafeAreaView>
     <LinearGradient
       colors={['#d4477e', '#550617']}
       start={{x: 1, y: 0}}
       end={{x: 0, y: 1}}
       style={styles.container}>
-      <Header />
-      <Image
-        source={require('../../../assets/images/world.png')}
-        resizeMode="contain"
-        style={styles.image}
-        blurRadius={0.7}
-      />
+      <SafeAreaView style={styles.container}>
+        <Header
+          header={header}
+          leftButton={leftButton}
+          rightButton={rightButton}
+        />
+        <Image
+          source={require('../../../assets/images/world.png')}
+          resizeMode="contain"
+          style={styles.image}
+          blurRadius={0.7}
+        />
 
-      {children}
+        {children}
+      </SafeAreaView>
     </LinearGradient>
-    // </SafeAreaView>
   );
 };
 

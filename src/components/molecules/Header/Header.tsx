@@ -1,6 +1,6 @@
 import {Button, Pressable, Text, View} from 'react-native';
 
-const Header = () => {
+const Header = (props: any) => {
   return (
     <View
       style={{
@@ -10,13 +10,11 @@ const Header = () => {
         paddingVertical: 10,
         marginHorizontal: 20,
       }}>
-      <Pressable>
-        <Text>Button</Text>
-      </Pressable>
-      <Text>Header</Text>
-      <Pressable>
-        <Text>Icon</Text>
-      </Pressable>
+      {props.leftButton}
+      <Text style={{fontSize: 24, fontWeight: '500', color: 'white'}}>
+        {props.header}
+      </Text>
+      {props.rightButton}
     </View>
   );
 };
